@@ -39,6 +39,11 @@ sudo chmod a+x /usr/local/bin/playa
 
 ### Usage
 
-+ type: playa <path/to/folder> to play recursively all music files in side this hierarchy
-+ type: playa only to look and play music directly from the position in path your terminal points to
-+ press: CTRL+C to simply quit the play queue
++ type playa <path/to/folder> to play recursively all music files in side this hierarchy
++ type playa without arguments to play music from terminal position in path recursively
++ press CTRL+C to simply quit the play queue
++ skipping not supported yet (@TODO)
+
+### Contribute
+
+The autor of this software has developed it with the help from the #bash community, especially @geirha from #bash IRC and is sharing this for free under the condition to provide reports and contribution to extend the functionality. Feel free to post suggestions in the issue queue https://github.com/diqidoq/playa/issues but beware that the terminal based playa is intended for being lightweight and filling the gap between *real* audio players, already too big terminal audio players and too unsatisfying long typing terminal commands on the other hand, while needing to check and play audio seamlessly from *ANY* multimedia file in folder trees. Common use cases: audio management, research, seamless non stop play the library, and more.
