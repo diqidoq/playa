@@ -15,7 +15,7 @@ Add execution permissions by the following terminal command:
 chmod a+x ~/bin/playa
 ```
 
-Make sure your suer bin folder is in the system path by adding this to your ``` .profile ```
+Make sure your user home bin folder is in the system path by adding this to your ``` .profile ```
 
 ```
 if [ -d "$HOME/bin" ] ; then
