@@ -1,0 +1,87 @@
+#!/bin/bash
+#
+# PLAYA - a simple folder/subfolder music scanner/player based on FFmpeg
+# to simply play all audio from an audio/video file list in sub directory
+#
+# which was finally more complicated than expected at first glance, but
+# made possible with help from #bash IRC, @geirha, @izabera, @llua
+
+# Copyright (C) 2015  Digidog - Released under GPL v3
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+case "$1" in
+
+	-h|--help)
+	
+			echo "
+	# PLAYA  - Copyright (C) 2015 Digidog
+	# is a simple folder/subfolder music scanner/player based on FFmpeg.
+	# It has an aplay fall back, which doesn't support playing audio from video
+
+	# This program comes with ABSOLUTELY NO WARRANTY.
+	# This is free software, and you are welcome to redistribute it
+	# under certain conditions
+
+	How to use:
+	-----------
+
+	+ type: playa <path/to/folder> to play recursively all music files in side this hierarchy
+	+ type: playa only to look and play music directly from the position in path your terminal points to
+	+ press: CTRL+C to simply quit the play queue
+
+"
+	;;
+	
+	*)
+	
+		find_args=()
+		extensions=( m4a flac mp3 wav aif aiff aac ape wma mp4 mov avi mkv divx xvid dv ogg )
+		for ext in "${extensions[@]}" ; do
+			find_args+=( -o -iname "*.$ext" ) 
+		done
+
+		# lets remove the first -o from the loop to get the correct find construct 
+		unset 'find_args[0]'
+
+		# if no folder is provided we start were the terminal is
+		if [[ ! "$1" ]] ; then f='.' ; else f="$1" ; fi
+
+		# http://mywiki.wooledge.org/BashGuide/Arrays
+		# preventing trouble with globs in bash -version < 4.3
+		playlist=()
+		while read -r -d '' ; do
+			playlist+=("$REPLY")
+		done < <(find "$f/" \( "${find_args[@]}" \) -print0)
+																 
+		for index in "${!playlist[@]}" ; do
+			# we better implement || break to interrupt the loop on CTRL+C
+			# It's because of ffplay, it has set a signal handler for SIGINT, and fails to reset it
+			# @TODO: testing a better solution with trap 'trap - SIGINT; kill -INT "$$"' INT or
+			# trap 'trap - INT; kill -INT "$$"' INT
+			# or use key bindings 
+			# http://stackoverflow.com/questions/4200800/in-bash-how-do-i-bind-a-function-key-to-a-command
+			if hash ffmpeg 2>/dev/null; then
+				ffplay -nodisp -hide_banner -autoexit "${playlist[index]}" || break
+			else
+				aplay "${playlist[index]}" || break
+			fi
+		done
+
+		printf \\n
+		exit 1
+	;;
+esac
+
+exit 0
