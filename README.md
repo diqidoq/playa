@@ -69,4 +69,4 @@ The autor of this software has developed it with the help from the #bash communi
 
 ## credits
 
-The software has been developed and tested by @diqidoq und Debian 9 and bash. Special thanks goes to the supporters and contributors [https://github.com/ocbtec](ocbtec), [https://github.com/geira](geirha), @llua, @izabera, @konsolebix and many more from #bash IRC.
+The software has been developed and tested by @diqidoq und Debian 9 and bash. Special thanks goes to the supporters and contributors [ocbtec](https://github.com/ocbtec), [geirha](https://github.com/geirha), @llua, @izabera, @konsolebix and many more from #bash IRC.
