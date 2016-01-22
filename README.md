@@ -12,7 +12,7 @@ Make sure you have FFmpeg installed. Under Debian like Linux distros it is provi
 
 ### Get playa
 
-If you have git installed you can clone playa:
+If you have git installed, you can clone playa:
 
 ```
 git clone https://github.com/diqidoq/playa.git
@@ -22,7 +22,7 @@ Or you can download the zip file from https://github.com/diqidoq/playa/archive/m
 
 ## Installation locally
 
-Simply drag and drop the file named *playa* in your ``` ~/bin ``` ($HOME/bin) directory or do it via terminal from the folder where you have playa downloaded:
+Simply drag and drop the file named *playa* out of the playa folder into your ``` ~/bin ``` ($HOME/bin) directory or do it via terminal from within the playa folder, which lies where you have playa downloaded or unpacked:
 
 ```
 cp playa ~/bin/
