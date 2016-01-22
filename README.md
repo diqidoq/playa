@@ -15,7 +15,7 @@ Make sure you have FFmpeg installed. Under Debian like Linux distros it is provi
 If you have git installed you can clone playa:
 
 ```
-git cone https://github.com/diqidoq/playa.git
+git clone https://github.com/diqidoq/playa.git
 ```
 
 Or you can download the zip file from https://github.com/diqidoq/playa/archive/master.zip unpack it and navigate into the folder tree for installation.
