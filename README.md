@@ -15,6 +15,14 @@ Add execution permissions by the following terminal command:
 chmod a+x ~/bin/playa
 ```
 
+Make sure your suer bin folder is in the system path by adding this to your ``` .profile ```
+
+```
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+```
+
 ### Installation globally
 
 Copy the file named *playa* into your ``` /usr/local/bin ``` directory (requires root permissions):
