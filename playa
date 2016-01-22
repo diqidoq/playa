@@ -21,11 +21,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-case "$1" in
-
-	-h|--help)
-	
-		echo "
+Help() {
+cat << EOF
 	# PLAYA  - Copyright (C) 2015 Digidog - GPL v3
 	# is a free simple folder/subfolder music scanner/player based on FFmpeg.
 	# It has an aplay fall back, which doesn't support playing audio from video
@@ -41,12 +38,18 @@ case "$1" in
 	+ type playa without arguments to play music from terminal position in path recursively
 	+ press CTRL+C to simply quit the play queue
 	+ skipping not supported yet (@TODO)
+EOF
+}
 
-	"
+case "$1" in
+
+	-h|--help)
+		Help
+		exit 1
 	;;
 	
 	*)
-	
+		# supported media formats, feel free to suggest more
 		find_args=()
 		extensions=( m4a flac mp3 wav aif aiff aac ape wma mp4 mov avi mkv divx xvid dv ogg )
 		for ext in "${extensions[@]}" ; do
@@ -60,7 +63,7 @@ case "$1" in
 		if [[ ! "$1" ]] ; then f='.' ; else f="$1" ; fi
 
 		# http://mywiki.wooledge.org/BashGuide/Arrays
-		# preventing trouble with globs in bash -version < 4.3
+		# work around to prevent trouble with **/* globs in bash -version < 4.3
 		playlist=()
 		while read -r -d '' ; do
 			playlist+=("$REPLY")
