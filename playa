@@ -22,7 +22,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Help(){
+
 cat << EOF
+
 PLAYA  - Copyright (C) 2015 Digidog - GPL v3
 is a free simple folder/subfolder music scanner/player based on FFmpeg.
 It has an aplay fall back, which does not support playing audio from video
@@ -33,12 +35,14 @@ under certain conditions of GPL v3 by crediting the original author
 
 How to use (Terminal commands):
 -------------------------------
-playa <path/to/folder> ... play recursively all music files in side this hierarchy
-playa without arguments ... play music from terminal position in path recursively
+  'playa <path/to/folder>' ... play recursively all music files in side this hierarchy
+  'playa' without arguments ... play music from terminal position in path recursively
 
-press CTRL+C to simply quit the play queue
+press 'CTRL+C' to simply quit the play queue
 skipping not supported yet (@TODO)
+
 EOF
+
 }
 
 ErrMissingDep(){
