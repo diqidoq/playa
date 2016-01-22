@@ -23,22 +23,32 @@
 
 Help() {
 cat << EOF
-	# PLAYA  - Copyright (C) 2015 Digidog - GPL v3
-	# is a free simple folder/subfolder music scanner/player based on FFmpeg.
-	# It has an aplay fall back, which doesn't support playing audio from video
 
-	# This program comes with ABSOLUTELY NO WARRANTY.
-	# This is free software, and you are welcome to redistribute it
-	# under certain conditions of GPL v3 by crediting the original author
+PLAYA  - Copyright (C) 2015 Digidog - GPL v3
+is a free simple folder/subfolder music scanner/player based on FFmpeg.
+It has an aplay fall back, which doesn't support playing audio from video
 
-	How to use:
-	-----------
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions of GPL v3 by crediting the original author
 
-	+ type playa <path/to/folder> to play recursively all music files in side this hierarchy
-	+ type playa without arguments to play music from terminal position in path recursively
-	+ press CTRL+C to simply quit the play queue
-	+ skipping not supported yet (@TODO)
+How to use:
+-----------
++ type playa <path/to/folder> to play recursively all music files in side this hierarchy
++ type playa without arguments to play music from terminal position in path recursively
++ press CTRL+C to simply quit the play queue
++ skipping not supported yet (@TODO)
+
 EOF
+}
+
+ErrMissingDep() {
+    cat << EOF
+	You system does not support FFmpeg or aplay to run this program.
+	PLease follow the `First steps` and `installation guidlines` of playa at github/diqidoq/playa
+    EOF
+    Help
+    exit 1
 }
 
 case "$1" in
@@ -76,10 +86,13 @@ case "$1" in
 			# trap 'trap - INT; kill -INT "$$"' INT
 			# or use key bindings 
 			# http://stackoverflow.com/questions/4200800/in-bash-how-do-i-bind-a-function-key-to-a-command
-			if hash ffmpeg 2>/dev/null; then
+			if hash ffmpeg 2>/dev/null ; then
 				ffplay -nodisp -hide_banner -autoexit "${playlist[index]}" || break
-			else
+			elif hash aplay 2>/dev/null ; then
 				aplay "${playlist[index]}" || break
+			else
+				ErrMissingDep
+				exit 1
 			fi
 		done
 
