@@ -1,5 +1,22 @@
-# playa
-A simple terminal based folder/subfolder audio scanner/player based on FFmpeg, to play all audio from any media file including all audio and video in a queue under the given path recursively.
+# Description
+
+PLAYA is a simple terminal based folder/subfolder audio scanner/player based on FFmpeg, to play all audio from any media file including all audio and audio from video in a queue under the given path recursively.
+
+### First steps
+
+#### FFmpeg
+
+Make sure you have FFmpeg installed. Under Debian like Linux distros it is provided in the repositories and should be able to install simply via ``` sudo apt-get install ffmpeg ```. Otherwise you can check for downloadabla packages under http://ffmpeg.org.
+
+#### Get playa
+
+If you have git installed you can clone playa:
+
+```
+git cone https://github.com/diqidoq/playa.git
+```
+
+Or you can download the zip file from https://github.com/diqidoq/playa/archive/master.zip unpack it and navigate into the folder tree for installation.
 
 ### Installation locally
 
