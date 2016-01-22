@@ -21,12 +21,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Help() {
+Help(){
 cat << EOF
-
 PLAYA  - Copyright (C) 2015 Digidog - GPL v3
 is a free simple folder/subfolder music scanner/player based on FFmpeg.
-It has an aplay fall back, which doesn't support playing audio from video
+It has an aplay fall back, which does not support playing audio from video
 
 This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
@@ -38,15 +37,14 @@ How to use:
 + type playa without arguments to play music from terminal position in path recursively
 + press CTRL+C to simply quit the play queue
 + skipping not supported yet (@TODO)
-
 EOF
 }
 
 ErrMissingDep() {
-    cat << EOF
-	You system does not support FFmpeg or aplay to run this program.
-	PLease follow the `First steps` and `installation guidlines` of playa at github/diqidoq/playa
-    EOF
+cat << EOF
+You system does not support FFmpeg or aplay to run this program.
+PLease follow the `First steps` and `installation guidlines` of playa at github/diqidoq/playa
+EOF
     Help
     exit 1
 }
