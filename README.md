@@ -31,6 +31,6 @@ sudo chmod a+x /usr/local/bin/playa
 
 ### Usage
 
-	+ type: playa <path/to/folder> to play recursively all music files in side this hierarchy
-	+ type: playa only to look and play music directly from the position in path your terminal points to
-	+ press: CTRL+C to simply quit the play queue
++ type: playa <path/to/folder> to play recursively all music files in side this hierarchy
++ type: playa only to look and play music directly from the position in path your terminal points to
++ press: CTRL+C to simply quit the play queue
