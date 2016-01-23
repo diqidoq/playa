@@ -64,7 +64,7 @@ case "$1" in
 	*)
 		# supported media formats, feel free to suggest more
 		find_args=()
-		extensions=( m4a flac mp3 wav aif aiff aac ape wma mp4 mov avi mkv divx xvid dv ogg )
+		extensions=( m4a flac mp2 mp3 wav aif aiff aifc aiffc au caf snd w64 aac ape wma mp4 mov avi mkv divx xvid dv ogg )
 		for ext in "${extensions[@]}" ; do
 			find_args+=( -o -iname "*.$ext" ) 
 		done
