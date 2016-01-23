@@ -11,7 +11,7 @@ PLAYA is a simple terminal based folder/subfolder audio scanner/player based on 
 Make sure you have FFmpeg installed. Under Debian like Linux distros it is provided in the repositories and should be able to install simply via ``` sudo apt-get install ffmpeg ```. Otherwise you can check for downloadabla packages under http://ffmpeg.org.
 
 #### Why no additional sox or other lib support ?
-First, the sox implemented terminal player does not support mp3 out of the box and it also is not that flexible in playing any formats like FFmpeg does. Sox is a great library and there is a battle going on between FFmpeg and Sox which libraries result in better format conversions when it comes to codec/container transcoding. But for the approach of PLAYA the ffmplay (any file) is unbeatable.
+Well no need to mention that FFmpeg is THE multimedia format handler library around. A complete, cross-platform solution to record, convert and stream audio and video. At Second, the sox implemented terminal player does not support mp3 out of the box and needs some configuration from the users side. And it also is not that flexible in playing any formats like FFmpeg does. One of the goals of PLAYA. Sox is a great library and there is a battle going on between FFmpeg and Sox which libraries result in better audio format conversions when it comes to codec/container transcoding for audiophiles, but for the approach of PLAYA the ffmplay (any file) pipe is unbeatable.
 
 ### Get playa
 
