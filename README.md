@@ -72,6 +72,6 @@ sudo chmod a+x /usr/local/bin/playa
 
 The autor of this software has developed it with the help from the #bash community, especially @geirha from #bash IRC and is sharing this for free under the condition to provide reports and contribution to extend the functionality. Feel free to post suggestions in the issue queue https://github.com/diqidoq/playa/issues or at #bash IRC channel in the freenode network, but beware that the terminal based playa is intended for being lightweight and filling the gap between *real* audio players, already too big terminal audio players and too unsatisfying long typing terminal commands on the other hand, while needing to check and play audio seamlessly from *ANY* multimedia file in folder trees. Common use cases: audio management, research, seamless non stop play the library, and more.
 
-## credits
+## Credits
 
 The software has been developed and tested by @diqidoq under Debian 9 and bash. Special thanks goes to the supporters and contributors [ocbtec](https://github.com/ocbtec), [geirha](https://github.com/geirha), @llua, @izabera, @konsolebix and many more from #bash IRC.
