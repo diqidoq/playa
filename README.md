@@ -68,7 +68,7 @@ sudo chmod a+x /usr/local/bin/playa
 + press ` CTRL+C ` to simply quit the play queue
 + skipping not supported yet (@TODO)
 
-[!] if FFmpeg or mplayer is not installed, the player falls back to sox, which doesn't support non audio files.
+[!] If FFmpeg or mplayer is not installed, PLAYA falls back to sox, which doesn't support non audio files and requires lame and libsox-fmt-mp3 installed to play mp3.
 
 ## Contribute
 
