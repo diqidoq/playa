@@ -2,7 +2,9 @@
 
 ## Description
 
-PLAYA is a simple and lightweight low level console audio player based on the common media codec framework FFmpeg to scan given folders and subfolder and play the audio from any media file including any video format in a queue under the given path recursively. This fills the gap between GUI audio players incl. bigger console players and simple play commands on the other hand, which need more typing to achieve parsing of directories and manage or test different media files regarding audio in a simple, lightweight and fast manner.
+PLAYA is a simple and lightweight low level console audio player based on the common media codec framework FFmpeg to scan given folders and subfolder and play the audio from any media file including any video format in a queue under the given path recursively while providing additional media file infos regarding codec, container, size, bitrate, samplerate, compression rate, streaming infos and much more. This fills the gap between GUI audio players incl. bigger console players and simple play terminal commands on the other hand, which need more typing to achieve parsing of directories and manage or test different media files regarding audio in a simple, lightweight and fast manner while being smart with unescaped directories or files with special characters.
+
+Simply type ``` playa dir/subdir ``` and let playa play all audio from any media file under the given path recursively.
 
 ## First steps
 
