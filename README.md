@@ -68,6 +68,8 @@ sudo chmod a+x /usr/local/bin/playa
 + press ` CTRL+C ` to simply quit the play queue
 + skipping not supported yet (@TODO)
 
+[!] if FFmpeg or mplayer is not installed, the player falls back to sox, which doesn't support non audio files.
+
 ## Contribute
 
 The autor of this software has developed it with the help from the #bash community, especially @geirha from #bash IRC and is sharing this for free under the condition to provide reports and contribution to extend the functionality. Feel free to post suggestions in the issue queue https://github.com/diqidoq/playa/issues or at #bash IRC channel in the freenode network, but beware that the terminal based playa is intended for being lightweight and filling the gap between *real* audio players, already too big terminal audio players and too unsatisfying long typing terminal commands on the other hand, while needing to check and play audio seamlessly from *ANY* multimedia file in folder trees. Common use cases: audio management, research, seamless non stop play the library, and more.
