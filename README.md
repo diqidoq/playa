@@ -80,17 +80,15 @@ The software has been developed and tested by @diqidoq under Debian 9 and bash. 
 
 If playa is not for you or your needs, take a look at this more extended console audio players instead:
 
-+ MOC
-+ ncmpc
-+ CMus
-+ mp3blaster
-+ Herrie
-+ PyTone
-+ ogg123
-+ mpg123
++ [MOC](http://moc.daper.net/)
++ [ncmpc](http://www.musicpd.org/clients/ncmpc/)
++ [CMus](https://cmus.github.io/)
++ [mp3blaster](http://mp3blaster.sourceforge.net/)
++ [PyTone](http://www.luga.de/pytone/)
++ [mpg123](http://www.mpg123.de/)
 
 Or use the play commands from this awesome frameworks:
 
-+ FFmpeg - Command <ffplay>
-+ SoX - Command <play>
-+ Mplayer - Command <mplayer>
++ [FFmpeg](https://www.ffmpeg.org/) - Command ```<ffplay> ```
++ [SoX](http://sox.sourceforge.net/) - Command ``` <play> ```
++ [Mplayer](http://www.mplayerhq.hu/design7/news.html) - Command ``` <mplayer> ```
