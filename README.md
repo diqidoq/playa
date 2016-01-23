@@ -75,3 +75,22 @@ The autor of this software has developed it with the help from the #bash communi
 ## Credits
 
 The software has been developed and tested by @diqidoq under Debian 9 and bash. Special thanks goes to the supporters and contributors [ocbtec](https://github.com/ocbtec), [geirha](https://github.com/geirha), @llua, @izabera, @konsolebix and many more from #bash IRC.
+
+## ALternatives
+
+If playa is not for you or your needs, take a look at this more extended console audio players instead:
+
++ MOC
++ ncmpc
++ CMus
++ mp3blaster
++ Herrie
++ PyTone
++ ogg123
++ mpg123
+
+Or use the play commands from this awesome frameworks:
+
++ FFmpeg - Command <ffplay>
++ SoX - Command <play>
++ Mplayer - Command <mplayer>
