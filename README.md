@@ -88,6 +88,7 @@ If playa is not for you or your needs, take a look at this more extended console
 + [mp3blaster](http://mp3blaster.sourceforge.net/)
 + [PyTone](http://www.luga.de/pytone/)
 + [mpg123](http://www.mpg123.de/)
++ [PlayShell](http://playshell.sourceforge.net/) of the awesome [konsolebox](https://github.com/konsolebox) :-)
 
 Or use the play commands from this awesome frameworks:
 
