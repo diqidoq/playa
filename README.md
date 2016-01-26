@@ -76,7 +76,7 @@ The autor of this software has developed it with the help from the #bash communi
 
 ## Credits
 
-The software has been developed and tested by @diqidoq under Debian 9 and bash. Special thanks goes to the supporters and contributors [ocbtec](https://github.com/ocbtec), [geirha](https://github.com/geirha), @llua, @izabera, @konsolebix and many more from #bash IRC.
+The software has been developed and tested by @diqidoq under Debian 9 and bash. Special thanks goes to the supporters and contributors [ocbtec](https://github.com/ocbtec), [geirha](https://github.com/geirha), @llua, @izabera, [konsolebox](https://github.com/konsolebox) and many more from #bash IRC.
 
 ## Alternatives
 
