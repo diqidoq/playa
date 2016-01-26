@@ -76,7 +76,7 @@ The autor of this software has started development of this small shell contribut
 
 ## Credits
 
-The software has been developed and tested by @diqidoq under Debian 9 and bash. Special thanks goes to the supporters and contributors [ocbtec](https://github.com/ocbtec), [geirha](https://github.com/geirha), @llua, @izabera, [konsolebox](https://github.com/konsolebox) and many more from #bash IRC.
+This shell application has been developed and tested by @diqidoq under Debian 9 and bash shell v. 4.3. Special thanks goes to the supporters and contributors [ocbtec](https://github.com/ocbtec), [geirha](https://github.com/geirha), @llua, @izabera, [konsolebox](https://github.com/konsolebox) and many more from #bash IRC.
 
 ## Alternatives
 
