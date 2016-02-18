@@ -47,8 +47,8 @@ EOF
 
 ErrMissingDep(){
 cat << EOF
-You system does not support FFmpeg or aplay to run this program.
-PLease follow the *First steps* and *installation guidlines* of playa at github/diqidoq/playa
+Your system does not support FFmpeg or aplay to run this program.
+PLease follow the *First steps* and *installation guidelines* of playa at github/diqidoq/playa.
 EOF
     Help
     exit 1
