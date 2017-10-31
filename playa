@@ -114,7 +114,7 @@ case "$1" in
 			# trap 'trap - INT; kill -INT "$$"' INT ... or use key bindings (?) 
 			# http://stackoverflow.com/questions/4200800/in-bash-how-do-i-bind-a-function-key-to-a-command
 			if hash mplayer 2>/dev/null ; then
-				mplayer if [[ ! "$output" == "none" ]] ; then echo -ao $output ; fi -novideo "${playlist[index]}" || break
+				mplayer ${ if [[ ! "$output" == "none" ]] ; then echo -ao $output ; fi } -novideo "${playlist[index]}" || break
 			elif hash ffmpeg 2>/dev/null ; then
 				ffplay -nodisp -hide_banner -autoexit "${playlist[index]}" || break
 			elif hash sox 2>/dev/null ; then
