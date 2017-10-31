@@ -75,15 +75,21 @@ case "$1" in
 		read -ep "Choose your default audo driver output ($output_list): " output
 		echo output_list=$output_list > "$config"
 		echo output=$output >> "$config"
-		echo playlist=$playlist >> "$config"
+		echo m3u_playlist=$m3u_playlist >> "$config"
 		echo "Quit now. Config changed (output: $output)."
 		exit 1
 	;;
 	*)
-		# supported media formats, feel free to suggest more
-		# should be limited to prevent breaking the script or to insult security issues
-		find_args=()
+	    # We start the scan of terminal position or given folder here.
+		# @TODO need if check and implementation of the m3u_playlist argument -p
+	
+		# Supported media formats, feel free to suggest more
+		# Should be limited to prevent breaking the script or to insult security issues
 		extensions=( m4a flac mp2 mp3 wav aif aiff aifc aiffc au caf snd w64 aac ape wma mp4 mov avi mkv divx xvid dv ogg )
+		
+		# define array find_array for find loop preparation (later)
+		find_args=()
+		
 		for ext in "${extensions[@]}" ; do
 			find_args+=( -o -iname "*.$ext" ) 
 		done
