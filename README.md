@@ -1,65 +1,66 @@
-# PLAYA
+# playa
 
 ## Description
 
-PLAYA is a simple and lightweight low level console audio player (still very alpha start yet) based on the common media codec framework FFmpeg to scan given folders and subfolder and play the audio from any media file including any video format in a queue under the given path recursively while providing additional media file infos regarding codec, container, size, bitrate, samplerate, compression rate, streaming infos and much more. This fills the gap between GUI audio players incl. bigger console players and simple play terminal commands on the other hand, which need more typing to achieve parsing of directories and manage or test different media files regarding audio in a simple, lightweight and fast manner while being smart with unescaped directories or files with special characters.
+*playa* is a very lightweight recursive directory Linux console audio player, able to simply scan recursively at terminal position for configurated audio formats by default without any additional arguments, or any given folders and subfolder and play the audio from any media file including any video format in a queue under the given path recursively while providing additional media file infos regarding codec, container, size, bitrate, samplerate, compression rate, streaming infos and much more. PLAYA also support to play a playlist file. This fills the gap between GUI audio players incl. bigger console players and some maybe too simple play terminal commands on the other hand, which need more typing to achieve parsing of directories and manage or test different media files regarding audio in a simple, lightweight and fast manner while being smart with unescaped directories or files with special characters.
 
-Simply type ``` playa dir/subdir ``` and let playa play all audio from any media file under the given path recursively. It will also play all audio from any media files in ``` dir/subdir/subdir2/etc ```.
+Simply type ``` playa ``` or ``` playa dir/subdir ``` and let playa play all audio from any media file under the given path recursively (means, it will also play all audio from any media files in ``` dir/subdir/subdir2/etc ``` one after the other.
+
+For me the fastest "I would like to listen music" action on terminal I know of ATM.
 
 ## First steps
 
-### FFmpeg
+### Dependencies (at the moment Linux only)
 
-Make sure you have FFmpeg and mplayer installed. Under Debian like Linux distros it is provided in the repositories and should be able to install simply via ``` sudo apt-get install ffmpeg mplayer ```. Otherwise you can check for downloadabla packages under http://ffmpeg.org.
+Make sure you have at least mplayer (default on many Linux) or FFmpeg or SoX installed. Under Debian like Linux distros it is provided in the repositories and should be able to install simply via ``` sudo apt-get install mplayer ffmpeg sox ``` etc. Otherwise you can check for downloadabla packages under http://ffmpeg.org.
 
-#### Why no prior or additional SoX or other lib support ?
-Well no need to mention that FFmpeg is THE multimedia format handler library around. A complete, cross-platform solution to record, convert and stream audio and video. At Second, the sox implemented terminal player does not support mp3 out of the box and needs some configuration from the users side. And it also is not that flexible in playing any formats like FFmpeg does. One of the goals of PLAYA. Sox is a great library and there is a battle going on between FFmpeg and Sox which libraries result in better audio format conversions when it comes to codec/container transcoding for audiophiles, but for the approach of PLAYA the ffmplay (any file) pipe is unbeatable.
+#### Why mplayer over FFmpeg and SoX in the order ?
+
+Well no need to mention that FFmpeg is THE multimedia format handler/converter library around. A complete, cross-platform solution to record, convert and stream audio and video. But mplayer supports the better player-like feeling in terminal OOTB including easy output driver option support (-ao). The ffplay command of FFmpeg is often not very known by users and has some limitations with complex work-arounds (sdl env variables). At Second, the SoX implemented terminal player named play (which is awesome!) does not support mp3 out of the box (not their fault, license issues) and needs some configuration from the users side. And it also is not that flexible in playing *ANY* formats like FFmpeg and mplayer does. One of the goals of PLAYA. SoX is a great command line Swiss Army Knife (like FFmpeg) and there is a battle going on between FFmpeg and SoX which result in better audio format conversions when it comes to codec/container transcoding for audio files, but for the approach of PLAYA the mplayer then ffmplay then SoX play order is the way to go for the minimum compatibility.
 
 ### Get playa
 
-If you have git installed, you can clone playa:
+If you have git installed, you can clone playa into your ~/bin or /share directory:
 
 ```
 git clone https://github.com/diqidoq/playa.git
 ```
 
-Or you can download the zip file from https://github.com/diqidoq/playa/archive/master.zip unpack it and navigate into the folder tree for installation.
+Or you can download the zip file from https://github.com/diqidoq/playa/archive/master.zip, unpack it and navigate into the folder tree for installation.
+Simply place the folder named *playa* into any directory of choice for your external command line tools repository. We keep this folder since it holds also config and log files.
 
 ## Installation locally
 
-Simply drag and drop the file named *playa* out of the playa folder into your ``` ~/bin ``` ($HOME/bin) directory or do it via terminal from within the playa folder, which lies where you have playa downloaded or unpacked:
+Use your local **bin directory of choice** (see below: [Common bin directories](#commonbindir)) to place a symlinked alias of the execution file (the playa file in the playa folder) in there.
 
-```
-cp playa ~/bin/
-```
+For example: If your local bin directory is ~/bin, then in command line you can do it with ``` ln -s /root/path/playa/playa $HOME/bin/playa ``` and add execution permissions for the playa file by the following terminal command: ``` chmod a+x $HOME/bin/playa/playa ``` .
 
-Add execution permissions by the following terminal command:
-
-```
-chmod a+x ~/bin/playa
-```
-
-Make sure your user home bin folder is in the system path by adding this to your ``` .profile ```
+Make sure your user home bin folder is in the system path by adding this to your ``` .profile ``` .
 
 ```
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-```
+``` 
 
-## Installation globally
+## Installation globally (requires root priviledges)
 
-Copy the file named *playa* into your ``` /usr/local/bin ``` directory (requires root permissions):
+Symlink the file named *playa* inside playa folder into your **bin directory of choice** (see below: [Common bin directories](#commonbindir)) and add execution permissions.
 
-```
-sudo cp playa /usr/local/bin/
-```
-
-Add execution permissions by the following terminal command:
+For example: If your global bi directory is /usr/local/bin do it by the following terminal commands:
 
 ```
-sudo chmod a+x /usr/local/bin/playa
+sudo ln -s /root/path/playa/playa /usr/local/bin/playa
+sudo chmod a+x /usr/local/bin/playa 
 ```
+
+## <a name="commonbindir"></a>Common bin directories
+
+Note: bin directories are commonly directories added to the enviroment PATH like the following. 
+
+ + ``` $HOME/bin ``` executive directory (if you have this in your PATH enviroment)
+ + ``` $HOME/share ``` executive directory (if you have this in your PATH enviroment)
+ + ``` /usr/local/bin ``` typical global bin directory for Debian based Linux distros.
 
 ## Usage
 
@@ -92,6 +93,6 @@ If playa is not for you or your needs, take a look at this more extended console
 
 Or use the play commands from this awesome frameworks:
 
-+ [FFmpeg](https://www.ffmpeg.org/) - Command ```<ffplay> ```
-+ [SoX](http://sox.sourceforge.net/) - Command ``` <play> ```
-+ [Mplayer](http://www.mplayerhq.hu/design7/news.html) - Command ``` <mplayer> ```
++ [FFmpeg](https://www.ffmpeg.org/) - Command ``` ffplay ```
++ [SoX](http://sox.sourceforge.net/) - Command ``` play ```
++ [Mplayer](http://www.mplayerhq.hu/design7/news.html) - Command ``` mplayer -novideo ```

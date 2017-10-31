@@ -21,11 +21,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+Name_to_here="$(basename "$(readlink -f "$0")")"
+Path_to_here="$(dirname "$(readlink -f "$0")")"
+Path_to_config_dir="$Path_to_here"
+config="$Path_to_config_dir/$Name_to_here.cfg"
+log_file="$Path_to_config_dir/$Name_to_here.log"
+touch $log_file
+source "$config"
+
 Help(){
 
 cat << EOF
 
-PLAYA  - Copyright (C) 2015 Digidog - GPL v3
+$Name_to_here  - Copyright (C) 2015 Digidog - GPL v3
 is a free simple folder/subfolder music scanner/player based on FFmpeg.
 It has an aplay fall back, which does not support playing audio from video
 
@@ -35,8 +43,11 @@ under certain conditions of GPL v3 by crediting the original author
 
 How to use (Terminal commands):
 -------------------------------
-  'playa <path/to/folder>' ... play recursively all music files in side this hierarchy
-  'playa' without arguments ... play music from terminal position in path recursively
+  $Name_to_here <path/to/folder>		play recursively all music files in side this hierarchy
+  $Name_to_here without arguments		play music from terminal position in path recursively
+  $Name_to_here -s |--setup				set up an audio output driver ($output_list)
+  $Name_to_here -h | --help				Show this help.
+  $Name_to_here -p | --playlist			Play playlist m3u file, like set up in playa.cfg with playa -s.
 
 press 'CTRL+C' to simply quit the play queue
 skipping not supported yet (@TODO)
@@ -60,9 +71,17 @@ case "$1" in
 		Help
 		exit 1
 	;;
-	
+	-s|--setup)
+		read -ep "Choose your default audo driver output ($output_list): " output
+		echo output_list=$output_list > "$config"
+		echo output=$output >> "$config"
+		echo playlist=$playlist >> "$config"
+		echo "Quit now. Config changed (output: $output)."
+		exit 1
+	;;
 	*)
 		# supported media formats, feel free to suggest more
+		# should be limited to prevent breaking the script or to insult security issues
 		find_args=()
 		extensions=( m4a flac mp2 mp3 wav aif aiff aifc aiffc au caf snd w64 aac ape wma mp4 mov avi mkv divx xvid dv ogg )
 		for ext in "${extensions[@]}" ; do
@@ -89,7 +108,7 @@ case "$1" in
 			# trap 'trap - INT; kill -INT "$$"' INT ... or use key bindings (?) 
 			# http://stackoverflow.com/questions/4200800/in-bash-how-do-i-bind-a-function-key-to-a-command
 			if hash mplayer 2>/dev/null ; then
-				mplayer -novideo "${playlist[index]}" || break
+				mplayer if [[ ! "$output" == "none" ]] ; then echo -ao $output ; fi -novideo "${playlist[index]}" || break
 			elif hash ffmpeg 2>/dev/null ; then
 				ffplay -nodisp -hide_banner -autoexit "${playlist[index]}" || break
 			elif hash sox 2>/dev/null ; then
